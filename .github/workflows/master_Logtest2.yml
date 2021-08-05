@@ -56,4 +56,4 @@ jobs:
         app-name: 'Logtest2'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_2eaea212d83d451f819ff1aab0e475e3 }}
-        package: dist/hello-world-app
+        package: ./dist/node-app
