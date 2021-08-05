@@ -59,6 +59,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'Logtest2'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_2eaea212d83d451f819ff1aab0e475e3 }}
-        package: ./dist/node-app
+        package: /home/runner/work/hello-world-app/hello-world-app
