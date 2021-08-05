@@ -27,7 +27,7 @@ jobs:
         npm run build --prod
         echo '-----------'
         pwd
-        ls
+        ls -lR dist
         echo '-----------'
       working-directory: .
 
