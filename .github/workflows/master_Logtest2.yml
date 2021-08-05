@@ -23,6 +23,10 @@ jobs:
 
     - name: npm install, build, and test
       run: |
+        echo '-----------'
+        pwd
+        ls
+        echo '-----------'
         npm install
         npm run build --prod
       working-directory: .
