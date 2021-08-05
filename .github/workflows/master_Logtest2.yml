@@ -32,7 +32,12 @@ jobs:
       working-directory: .
 
     - name: 'Zip files'
-      run: zip -r node-app.zip .
+      run: |  
+        echo '-----------'
+        pwd
+        ls -lR dist
+        echo '-----------'
+        zip -r node-app.zip .
 
     
     - name: Upload artifact for deployment job
