@@ -37,7 +37,7 @@ jobs:
         pwd
         ls -lR dist
         echo '-----------'
-        zip -r node-app.zip dist
+        zip -r node-app.zip .
 
     
     - name: Upload artifact for deployment job
