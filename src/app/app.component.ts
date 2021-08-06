@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppInsightsService } from '@markpieszak/ng-application-insights';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private appInsightsService: AppInsightsService) {};
+
   title = 'hello-world-app';
+  testfn()
+  {
+    this.appInsightsService.trackEvent('Test trace message', { 'user': 'jp', 'cart': '1234' });
+  }
 }
