@@ -17,10 +17,11 @@ export class AppComponent {
     var t = new Date().getTime();
     var now = new Date(t);
 
-    var msg = 'Log message';
+    var msg = 'Log INFO';
+
     console.log(now.toDateString().concat(' ', now.toTimeString(), ' :: ', msg));
 
-    this.appInsightsService.trackEvent(msg, { 'parama1': 'pval1', 'param2': 'pval2' });
+    this.appInsightsService.trackEvent(msg, { 'INFO1': 'pval1', 'INFO2': 'pval2' });
 
     }
 
@@ -31,8 +32,8 @@ export class AppComponent {
 
       var msg = 'Log DEBUG';
       console.log(now.toDateString().concat(' ', now.toTimeString(), ' :: ', msg));
-      appInsights.trackTrace(msg,{ 'parama1': 'pval1', 'param2': 'pval2' } , 99);
-      //this.appInsightsService.trackEvent(msg, { 'parama1': 'pval1', 'param2': 'pval2' });
+      //appInsights.trackTrace(msg,{ 'parama1': 'pval1', 'param2': 'pval2' } , 99);
+      this.appInsightsService.trackEvent(msg, { 'DEBUG1': 'pval1', 'DEBUG2': 'pval2' });
       }
 
     logException()
