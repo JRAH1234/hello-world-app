@@ -327,17 +327,17 @@
   <input type="hidden" #selection>
 
   <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'; testfn()" tabindex="0">
+    <button class="card card-small" (click)="selection.value = 'exception'; logException()" tabindex="0">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
       <span>Log Exception</span>
     </button>
 
-    <button class="card card-small" (click)="selection.value = 'material'" tabindex="0">
+    <button class="card card-small" (click)="selection.value = 'info';logTrace()" tabindex="0">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
       <span>Log Warning</span>
     </button>
 
-    <button class="card card-small" (click)="selection.value = 'pwa'" tabindex="0">
+    <button class="card card-small" (click)="selection.value = 'debug';logDebug()" tabindex="0">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
       <span>Log Debug</span>
     </button>
@@ -347,11 +347,9 @@
   <!-- Terminal -->
   <div class="terminal" [ngSwitch]="selection.value">
       <pre *ngSwitchDefault>Ready ....</pre>
-      <pre *ngSwitchCase="'material'">Logging warning</pre>
-      <pre *ngSwitchCase="'pwa'">Logging debug</pre>
-      <pre *ngSwitchCase="'component'">Logging exception</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build</pre>
+      <pre *ngSwitchCase="'info'">Logging warning</pre>
+      <pre *ngSwitchCase="'debug'">Logging debug</pre>
+      <pre *ngSwitchCase="'exception'">Logging exception</pre>
   </div>
 
 

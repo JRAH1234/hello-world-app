@@ -12,11 +12,15 @@ export class AppComponent {
 
   title = 'II Logging Tests';
 
-  testfn()
+  logTrace()
   {
-    console.log('Tracking ....')
+    var t = new Date().getTime();
+    var now = new Date(t);
 
-    this.appInsightsService.trackEvent('Test trace message', { 'user': 'jp', 'cart': '1234' });
+    var msg = now.toDateString().concat(' ', now.toTimeString(), ' :: INFO message');
+    console.log(msg);
+
+    this.appInsightsService.trackEvent(msg, { 'parama1': 'pval1', 'param2': 'pval2' });
 
     try {
       throw new Error('Something bad happened');
@@ -25,13 +29,40 @@ export class AppComponent {
         this.appInsightsService.trackException(e,'1');
     }
 
+    }
 
+    logDebug()
+    {
+      var t = new Date().getTime();
+      var now = new Date(t);
 
-  }
+      var msg = now.toDateString().concat(' ', now.toTimeString(), ' :: DEBUG message');
+      console.log(msg);
 
-  testfn2()
-  {
-    console.log('Got a button press')
-    return('material')
-  }
+      this.appInsightsService.trackEvent(msg, { 'parama1': 'pval1', 'param2': 'pval2' });
+
+      try {
+        throw new Error('Something bad happened');
+      }
+      catch(e) {
+          this.appInsightsService.trackException(e,'1');
+      }
+
+      }
+
+    logException()
+    {
+      var t = new Date().getTime();
+      var now = new Date(t);
+
+      var msg = now.toDateString().concat(' ', now.toTimeString(), ' :: LogException');
+      console.log(msg);
+
+      try {
+        throw new Error(msg);
+      }
+      catch(e) {
+          this.appInsightsService.trackException(e,'1');
+      }
+    }
 }
