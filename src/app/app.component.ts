@@ -17,17 +17,10 @@ export class AppComponent {
     var t = new Date().getTime();
     var now = new Date(t);
 
-    var msg = now.toDateString().concat(' ', now.toTimeString(), ' :: INFO message');
-    console.log(msg);
+    var msg = 'Log message';
+    console.log(now.toDateString().concat(' ', now.toTimeString(), ' :: ', msg));
 
     this.appInsightsService.trackEvent(msg, { 'parama1': 'pval1', 'param2': 'pval2' });
-
-    try {
-      throw new Error('Something bad happened');
-    }
-    catch(e) {
-        this.appInsightsService.trackException(e,'1');
-    }
 
     }
 
@@ -36,18 +29,10 @@ export class AppComponent {
       var t = new Date().getTime();
       var now = new Date(t);
 
-      var msg = now.toDateString().concat(' ', now.toTimeString(), ' :: DEBUG message');
-      console.log(msg);
-
-      this.appInsightsService.trackEvent(msg, { 'parama1': 'pval1', 'param2': 'pval2' });
-
-      try {
-        throw new Error('Something bad happened');
-      }
-      catch(e) {
-          this.appInsightsService.trackException(e,'1');
-      }
-
+      var msg = 'Log DEBUG';
+      console.log(now.toDateString().concat(' ', now.toTimeString(), ' :: ', msg));
+      appInsights.trackTrace(msg,{ 'parama1': 'pval1', 'param2': 'pval2' } , 99);
+      //this.appInsightsService.trackEvent(msg, { 'parama1': 'pval1', 'param2': 'pval2' });
       }
 
     logException()
@@ -55,8 +40,9 @@ export class AppComponent {
       var t = new Date().getTime();
       var now = new Date(t);
 
-      var msg = now.toDateString().concat(' ', now.toTimeString(), ' :: LogException');
-      console.log(msg);
+      var msg = 'Log Exception';
+
+      console.log(now.toDateString().concat(' ', now.toTimeString(), ' :: ', msg));
 
       try {
         throw new Error(msg);
