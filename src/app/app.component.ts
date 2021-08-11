@@ -17,11 +17,14 @@ export class AppComponent {
     var t = new Date().getTime();
     var now = new Date(t);
 
-    var msg = 'Log INFO';
+    var msg = 'INFO: Create workorder';
 
     console.log(now.toDateString().concat(' ', now.toTimeString(), ' :: ', msg));
 
-    this.appInsightsService.trackEvent(msg, { 'INFO1': 'pval1', 'INFO2': 'pval2' });
+    this.appInsightsService.trackEvent(msg, { 'Application': 'Insight',
+                                              'Cost Centre': 'Track',
+                                              'EQUIP_NO': '00000000018754',
+                                              'WORKORDER_NUMBER': '0898746' });
 
     }
 
