@@ -48,7 +48,7 @@ export class AppComponent {
 
   callAPI()
   {
-    let url = 'https://afa-jrah-002.azurewebsites.net/api/HttpTrigger1?clientId=apim-api-m-jrah001';
+    let url = 'https://api-m-jrah001.azure-api.net/afa-jrah-002/HttpTrigger1';
     //let resp = this.http.get('https://afa-jrah-002.azurewebsites.net/api/HttpTrigger1?clientId=apim-api-m-jrah001');
     //console.log(resp.headers.get('X-Custom-Header'));
 
